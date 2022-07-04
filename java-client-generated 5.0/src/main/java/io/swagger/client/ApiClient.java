@@ -844,6 +844,17 @@ public class ApiClient {
             throw new ApiException(e);
         }
     }
+    
+    public String executeWithJson(Call call) throws ApiException {
+        try {
+            Response response = call.execute();
+            return response.body().string();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+    
+   
 
     /**
      * {@link #executeAsync(Call, Type, ApiCallback)}
